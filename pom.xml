@@ -5,13 +5,12 @@
   <groupId>org.example</groupId>
   <artifactId>app01</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
 
-  <!-- Default packaging set to JAR -->
-  <packaging>jar</packaging>
 
   <name>app01</name>
   <url>http://maven.apache.org</url>
-
   <build>
     <plugins>
         <plugin>
@@ -24,8 +23,7 @@
             </configuration>
         </plugin>
     </plugins>
-  </build>
-
+</build>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -38,38 +36,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <!-- Profiles for building both JAR and WAR -->
-  <profiles>
-    <!-- Profile for building JAR -->
-    <profile>
-      <id>jar</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.1.0</version>
-          </plugin>
-        </plugins>
-      </build>
-      <packaging>jar</packaging>
-    </profile>
-
-    <!-- Profile for building WAR -->
-    <profile>
-      <id>war</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.3.1</version>
-          </plugin>
-        </plugins>
-      </build>
-      <packaging>war</packaging>
-    </profile>
-  </profiles>
-
 </project>
