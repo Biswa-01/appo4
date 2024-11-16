@@ -6,8 +6,8 @@
   <groupId>org.example</groupId>
   <artifactId>app01</artifactId>
   <version>1.0-SNAPSHOT</version>
-
-  <!-- Default packaging set to JAR -->
+  
+  <!-- Default packaging as jar -->
   <packaging>jar</packaging>
 
   <name>app01</name>
@@ -15,14 +15,18 @@
 
   <build>
     <plugins>
+        <!-- Jar plugin -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
-            <configuration>
-                <source>8</source>
-                <target>8</target>
-            </configuration>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+        </plugin>
+        
+        <!-- War plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.1</version>
         </plugin>
     </plugins>
   </build>
@@ -39,37 +43,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <!-- Profiles to build both JAR and WAR -->
-  <profiles>
-    <!-- Profile for building JAR -->
-    <profile>
-      <id>jar</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.1.0</version>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <!-- Profile for building WAR -->
-    <profile>
-      <id>war</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.3.1</version>
-          </plugin>
-        </plugins>
-      </build>
-      <packaging>war</packaging> <!-- Override packaging for WAR -->
-    </profile>
-  </profiles>
-
 </project>
